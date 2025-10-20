@@ -6,7 +6,7 @@ const Header: Component = () => {
       <div class="container">
         <div class="header-content">
           <div class="logo">
-            <a href="/" class="logo-link">Marta</a>
+            <a href="/" class="logo-link">Marta Gil</a>
           </div>
           <nav class="main-nav">
             <a href="/" class="nav-link">Artículos</a>
