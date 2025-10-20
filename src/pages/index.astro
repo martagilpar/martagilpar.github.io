@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.tsx';
 import Footer from '../components/Footer.tsx';
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import articleHero from '../assets/article-hero.jpg';
 
 const articles = await getCollection('articles');
 const latestArticle = articles.sort((a, b) => 
@@ -32,7 +34,13 @@ const { Content } = await latestArticle.render();
           </div>
         </div>
         <div class="article-image">
-          <div class="image-placeholder">Article Image</div>
+          <Image 
+            src={articleHero} 
+            alt={latestArticle.data.title}
+            width={400}
+            height={300}
+            class="hero-image"
+          />
         </div>
       </div>
     </div>

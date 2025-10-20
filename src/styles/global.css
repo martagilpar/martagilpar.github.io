@@ -144,16 +144,11 @@ body {
   align-items: center;
 }
 
-.image-placeholder {
+.hero-image {
   width: 100%;
   height: var(--image-height);
-  background: var(--color-bg-placeholder);
+  object-fit: cover;
   border-radius: var(--spacing-xs);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-color);
-  font-size: 16px;
 }
 
 /* Section 2: Light Article Content */
