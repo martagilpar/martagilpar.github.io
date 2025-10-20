@@ -6,7 +6,7 @@ const Footer: Component = () => {
       <div class="container">
         <div class="footer-content">
           <p class="footer-text">
-            © 2024 Mind Matters. Exploring psychology with curiosity and compassion.
+            © 2024 Marta. Explorando la psicología con curiosidad y compasión.
           </p>
         </div>
       </div>
