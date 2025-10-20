@@ -1,0 +1,56 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.tsx';
+import Footer from '../../components/Footer.tsx';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('articles');
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const { Content } = await article.render();
+---
+
+<Layout title={`${article.data.title} - Mind Matters`} description={article.data.description}>
+  <Header />
+  
+  <article class="article-page">
+    <div class="container-narrow">
+      <header class="article-header">
+        <div class="article-meta">
+          <time datetime={article.data.publishedAt.toISOString()}>
+            {article.data.publishedAt.toLocaleDateString('en-US', { 
+              year: 'numeric', 
+              month: 'long', 
+              day: 'numeric' 
+            })}
+          </time>
+          <span>•</span>
+          <span>{article.data.readingTime}</span>
+        </div>
+        
+        <h1 class="article-title">{article.data.title}</h1>
+        <p class="article-description">{article.data.description}</p>
+        
+        {article.data.tags && (
+          <div class="article-tags">
+            {article.data.tags.map((tag) => (
+              <span class="tag">{tag}</span>
+            ))}
+          </div>
+        )}
+      </header>
+      
+      <div class="article-content">
+        <Content />
+      </div>
+    </div>
+  </article>
+  
+  <Footer />
+</Layout>

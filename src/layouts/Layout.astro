@@ -5,6 +5,9 @@ export interface Props {
 }
 
 const { title, description = "A psychology blog exploring the human mind" } = Astro.props;
+
+// Import CSS at the top level
+import '../styles/global.css';
 ---
 
 <!doctype html>
@@ -14,15 +17,9 @@ const { title, description = "A psychology blog exploring the human mind" } = As
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <title>{title}</title>
   </head>
   <body>
     <slot />
-    <style>
-      @import '../styles/global.css';
-    </style>
   </body>
 </html>

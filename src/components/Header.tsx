@@ -2,13 +2,16 @@ import type { Component } from 'solid-js';
 
 const Header: Component = () => {
   return (
-    <header class="hero-section">
+    <header class="site-header">
       <div class="container">
-        <h1>Mind Matters</h1>
-        <p>
-          Exploring the depths of human psychology and behavior through 
-          evidence-based insights and thoughtful analysis
-        </p>
+        <div class="header-content">
+          <div class="logo">
+            <a href="/" class="logo-link">Mind Matters</a>
+          </div>
+          <nav class="main-nav">
+            <a href="/" class="nav-link">Articles</a>
+          </nav>
+        </div>
       </div>
     </header>
   );

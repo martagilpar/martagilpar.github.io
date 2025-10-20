@@ -13,27 +13,39 @@ const { Content } = await latestArticle.render();
 
 <Layout title="Mind Matters - Psychology Blog">
   <Header />
-  <main class="container" style="padding: 4rem 2rem;">
-    <div class="card">
-      <article class="article-content">
-        <div class="article-meta">
-          Published on {latestArticle.data.publishedAt.toLocaleDateString('en-US', { 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric' 
-          })} • {latestArticle.data.readingTime}
+  
+  <!-- Section 1: Dark Header with Title and Image -->
+  <section class="article-hero">
+    <div class="container">
+      <div class="article-hero-content">
+        <div class="article-meta-section">
+          <h1 class="article-title">{latestArticle.data.title}</h1>
+          <div class="article-meta">
+            <span class="publish-date">
+              {latestArticle.data.publishedAt.toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+              })}
+            </span>
+            <span class="read-time">{latestArticle.data.readingTime}</span>
+          </div>
         </div>
-        
-        <h2>{latestArticle.data.title}</h2>
-        <p style="color: var(--text-light); font-size: 1.1rem; margin-bottom: 2rem;">
-          {latestArticle.data.description}
-        </p>
-        
-        <div class="markdown-content">
-          <Content />
+        <div class="article-image">
+          <div class="image-placeholder">Article Image</div>
         </div>
-      </article>
+      </div>
     </div>
-  </main>
+  </section>
+
+  <!-- Section 2: Light Article Content -->
+  <section class="article-body">
+    <div class="container">
+      <div class="content-wrapper">
+        <Content />
+      </div>
+    </div>
+  </section>
+  
   <Footer />
 </Layout>
